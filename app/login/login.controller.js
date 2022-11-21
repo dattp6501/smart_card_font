@@ -1,8 +1,7 @@
 SmartCardApp.controller('LoginCtrl', ['$scope','$rootScope','$location','$cookies','LoginService',
 function($scope,$rootScope,$location,$cookies,LoginService) {
     (function initController() {
-        $scope.userName = "quannv21";
-        $scope.passWord = "123456789";
+        $rootScope.sh_header = false;
     })();
 
     $scope.Login = fnLogin;
