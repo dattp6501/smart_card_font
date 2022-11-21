@@ -43,12 +43,52 @@ SmartCardApp.config(['$stateProvider','$urlRouterProvider',function($stateProvid
             }]
         }
     })
+    .state("dashboard", {
+        url: "/dashboard",
+        templateUrl: app+'/dashboard/dashboard.view.html',
+        data: {
+            pageTitle: 'Dashboard',
+            css: [`./assets/css/custom.css`]
+        },
+        controller: "DashboardCtrl",
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name: 'SmartCardApp',
+                    files: [
+                        app+'/dashboard/dashboard.controller.js',
+                        app+'/dashboard/dashboard.service.js'
+                    ]
+                });
+            }]
+        }
+    })
+    .state("historyexit", {
+        url: "/history-exit",
+        templateUrl: app+'/historyexit/historyexit.view.html',
+        data: {
+            pageTitle: 'HistoryExit',
+            css: [`./assets/css/custom.css`]
+        },
+        controller: "HistoryExitCtrl",
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name: 'SmartCardApp',
+                    files: [
+                        app+'/historyexit/historyexit.controller.js',
+                        app+'/historyexit/historyexit.service.js'
+                    ]
+                });
+            }]
+        }
+    });
 }]);
 
 SmartCardApp.controller('AppController', ['$scope', '$rootScope', '$location','$cookies', 
 function ($scope, $rootScope, $location, $cookies) {
     (function initController() {
-        
+        $rootScope.sh_header = true;
     })();
 
 }]);

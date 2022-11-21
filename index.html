@@ -31,9 +31,16 @@
 
 
     <script src="./js/main.js"></script>
+    <div ng-include src="'./app/footer/footer.view.html'" ng-show="sh_header"></div>
     <div ui-view class="fade-in-up"></div>
 
     <script src="./app/login/login.controller.js"></script>
     <script src="./app/login/login.service.js"></script>
+
+    <script src="./app/dashboard/dashboard.controller.js"></script>
+    <script src="./app/dashboard/dashboard.service.js"></script>
+
+    <script src="./app/historyexit/historyexit.controller.js"></script>
+    <script src="./app/historyexit/historyexit.service.js"></script>
 </body>
 </html>

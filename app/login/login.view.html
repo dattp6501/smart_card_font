@@ -14,17 +14,17 @@
                                 <form>
                                     <p>Please login to your account</p>
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="form2Example11" class="form-control"
-                                            placeholder="Phone number or email address" />
-                                        <label class="form-label" for="form2Example11">Username</label>
+                                        <input ng-model="userName" type="text" id="form2Example11" class="form-control"
+                                            placeholder="username" />
+                                        <!-- <label class="form-label" for="form2Example11">Username</label> -->
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form2Example22" class="form-control" />
-                                        <label class="form-label" for="form2Example22">Password</label>
+                                        <input ng-model="passWord" type="password" id="form2Example22" class="form-control" />
+                                        <!-- <label class="form-label" for="form2Example22">Password</label> -->
                                     </div>
                                     <div class="text-center pt-1 mb-5 pb-1">
                                         <button class="form-control btn btn-primary btn-block gradient-custom-2 mb-3"
-                                            type="button">Login</button>
+                                            ng-click="Login()" type="button">Login</button>
                                         <a class="text-muted" href="#!">Forgot password?</a>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-center pb-4">

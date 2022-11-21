@@ -1,18 +1,19 @@
 SmartCardApp.controller('LoginCtrl', ['$scope','$rootScope','$location','$cookies','LoginService',
 function($scope,$rootScope,$location,$cookies,LoginService) {
     (function initController() {
-        $scope.userName = "user1";
+        $scope.userName = "quannv21";
         $scope.passWord = "123456789";
     })();
 
     $scope.Login = fnLogin;
     function fnLogin(){
         var reqData = {};
-        reqData.username = $scope.userName;
-        reqData.password = $scope.passWord;
+        reqData.user_name = $scope.userName;
+        reqData.pass_word = $scope.passWord;
         LoginService.Login(reqData,function (respData){
             if(respData.code == 200){
-                toastr.error(respData.description);
+                $cookies.put("session");
+                $location.path("/dashboard");
             }else {
                 toastr.error(respData.description);
             }
