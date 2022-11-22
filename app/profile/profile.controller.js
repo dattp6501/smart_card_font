@@ -7,12 +7,21 @@ function($scope,$rootScope,$location,$cookies,ProfileService){
             toastr.error("Chưa đăng nhập");
             $location.path("/login");
         }
+
+        fnGetProfile();
     })();
 
-    $scope.user = {
-        "full_name": "Trương Phúc Đạt",
-        "email": "dattp@gmail.com",
-        "phone": "",
-        "address": "Thái BÌnh"
-    };
+    function fnGetProfile(){
+        var reqData = {};
+        reqData.session = $cookies.get("session");
+        ProfileService.GetProfile(reqData,function(respData){
+            if(respData.code == 200){
+                $scope.user = respData.result;
+            }else if(respData.code == 700){
+                $cookies.remove("session");
+                $cookies.remove("user_name");
+                $location.path("/login");
+            }
+        });
+    }
 }]);
