@@ -12,9 +12,7 @@ function($scope,$rootScope,$location,$cookies,HistoryExitService,$filter,NgTable
 
     function fnGetHistoryExit(){
         var reqData = {};
-        reqData.a_user_name = "Admin.dattp";
-        reqData.a_pass_word = "Admin$123";
-        reqData.user_id = 2;
+        reqData.session = $cookies.get("session");
         $("#md_load").modal("show");
         HistoryExitService.GetHistoryExit(reqData,function(respData){
             $("#md_load").modal("hide");

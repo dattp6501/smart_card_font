@@ -5,7 +5,7 @@ SmartCardApp.factory('HistoryExitService',['$http','$rootScope',function($http,$
     function fnGetHistoryExit(reqData, callback) {
         var req = {
             method: 'POST',
-            url: hostname+'/admin/get_history_exit',
+            url: hostname+'/user/get_history_exit',
             data: reqData
         }
         $http(req).then(function(respData){callback(respData.data);}, function(respData){});
