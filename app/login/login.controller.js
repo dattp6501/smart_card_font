@@ -23,7 +23,7 @@ function($scope,$rootScope,$location,$cookies,LoginService) {
             if(respData.code == 200){
                 $cookies.put("session",respData.session);
                 $cookies.put("user_name",$scope.userName);
-                $rootScope.user_name_header = $scope.userName;
+                $rootScope.user_name_header = $cookies.get("user_name");
                 $location.path("/dashboard");
             }else {
                 toastr.error(respData.description);

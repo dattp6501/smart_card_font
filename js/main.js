@@ -113,6 +113,8 @@ function ($scope, $rootScope, $location,$cookies,LoginService) {
         if($rootScope.user_name==undefined || $rootScope.user_name==null){
             $rootScope.user_name = "";
         }
+        $rootScope.user_name_header = $cookies.get("user_name");
+
 
         $scope.Logout = fnLogout;
         function fnLogout(){

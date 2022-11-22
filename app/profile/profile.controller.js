@@ -12,9 +12,11 @@ function($scope,$rootScope,$location,$cookies,ProfileService){
     })();
 
     function fnGetProfile(){
+        $("#md_load").modal("show");
         var reqData = {};
         reqData.session = $cookies.get("session");
         ProfileService.GetProfile(reqData,function(respData){
+            $("#md_load").modal("hide");
             if(respData.code == 200){
                 $scope.user = respData.result;
             }else if(respData.code == 700){
