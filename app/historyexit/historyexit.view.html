@@ -1,1 +1,31 @@
-<div>history exit</div>
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-12">
+                <div class="scroller" style="max-height:450px;overflow-y:scroll " data-rail-visible="1"
+                    data-rail-color="red" data-handle-color="magenta">
+                    <table ng-table="tableParamsHistoryExit" class="table table-condensed table-striped table-bordered thead-dark">
+                        <tbody>
+                            <tr ng-repeat="he in tableDisplayHistoryExit">
+                                <td class="rowTd text-center" data-title="'STT'">{{$index+1}}</td>
+                                <td class="rowTd text-center" data-title="'Thời gian'" sortable="'time'"
+                                    filter="{time:'text'}">{{he.time}}</td>
+                                <td class="rowTd text-center" data-title="'Loại'">
+                                    <span ng-show="he.type==1" style="color:#ff0000;">
+                                        <i class="fa-solid fa-right-to-bracket"></i> Gửi xe</span>
+                                    <span ng-show="he.type==0" style="color:#0e864a;">
+                                        <i class="fa-regular fa-circle-left"></i> Lấy xe</span>
+                                </td>
+                                <td class="rowTd text-center" data-title="'Ghi chú'" filter="{note:'text'}">
+                                    {{he.note}}</td>
+                                <td class="rowId text-center">
+                                    <button class="btn btn-outline-success">Chi tiết</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

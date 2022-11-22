@@ -9,17 +9,16 @@
                                 <div class="text-center">
                                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                                         style="width: 185px;" alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                                    <!-- <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4> -->
                                 </div>
                                 <form>
-                                    <p>Please login to your account</p>
+                                    <p>Vui lòng nhập tài khoản để đăng nhập</p>
                                     <div class="form-outline mb-4">
-                                        <input ng-model="userName" type="text" id="form2Example11" class="form-control"
-                                            placeholder="username" />
+                                        <input ng-model="userName" type="text" id="form2Example11" class="form-control" placeholder="username" required/>
                                         <!-- <label class="form-label" for="form2Example11">Username</label> -->
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <input ng-model="passWord" type="password" id="form2Example22" class="form-control" />
+                                        <input ng-model="passWord" type="password" placeholde="password" id="form2Example22" class="form-control" required/>
                                         <!-- <label class="form-label" for="form2Example22">Password</label> -->
                                     </div>
                                     <div class="text-center pt-1 mb-5 pb-1">
@@ -29,7 +28,7 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Don't have an account?</p>
-                                        <button type="button" class="btn btn-outline-danger">Create new</button>
+                                        <button type="submit" class="btn btn-outline-danger">Create new</button>
                                     </div>
                                 </form>
                             </div>
@@ -40,7 +39,7 @@
                                 <p class="small mb-0">
                                     <div>Trương Phúc Đạt</div>
                                     <div>Nguyễn Văn Quân</div>
-                                    <div>Nguyễn Minh Đức</div>
+                                    <div>Trần Minh Đức</div>
                                 </p>
                             </div>
                         </div>
@@ -50,3 +49,19 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="md_load" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div class="modal-dialog bg-grey-steel bg-font-grey-steel">
+        <div class="modal-content">
+            <div class="portlet light no-padding margin-bottom-0">
+                <div class="portlet-body">
+                    <h4 class="modal-title text-bold text-center">ĐANG TẢI DỮ LIỆU, VUI LÒNG CHỜ...</h4>
+                    <hr>
+                    <div class="number text-center">
+                        <span><i class="fa fa-spinner fa-pulse fa-3x"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

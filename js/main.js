@@ -82,13 +82,54 @@ SmartCardApp.config(['$stateProvider','$urlRouterProvider',function($stateProvid
                 });
             }]
         }
+    })
+    .state("profile", {
+        url: "/profile",
+        templateUrl: app+'/profile/profile.view.html',
+        data: {
+            pageTitle: 'Profile',
+            css: [`./assets/css/custom.css`]
+        },
+        controller: "ProfileCtrl",
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name: 'SmartCardApp',
+                    files: [
+                        app+'/profile/profile.controller.js',
+                        app+'/profile/profile.service.js'
+                    ]
+                });
+            }]
+        }
     });
 }]);
 
-SmartCardApp.controller('AppController', ['$scope', '$rootScope', '$location','$cookies', 
-function ($scope, $rootScope, $location, $cookies) {
+SmartCardApp.controller('AppController', ['$scope', '$rootScope', '$location','$cookies','LoginService',
+function ($scope, $rootScope, $location,$cookies,LoginService) {
     (function initController() {
         $rootScope.sh_header = true;
+        $rootScope.user_name = $cookies.get("user_name");
+        if($rootScope.user_name==undefined || $rootScope.user_name==null){
+            $rootScope.user_name = "";
+        }
+
+        $scope.Logout = fnLogout;
+        function fnLogout(){
+            $("#md_load").modal("show");
+            var reqData = {};
+            reqData.session = $cookies.get("session");
+            LoginService.Logout(reqData,function(respData){
+                $("#md_load").modal("hide");
+                if(respData.code == 200){
+                    $cookies.remove("session");
+                    $cookies.remove("user_name");
+                    $location.path("/login");
+                }else{
+                    toastr.error(respData.description);
+                }
+            });
+        }
     })();
 
 }]);

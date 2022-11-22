@@ -20,3 +20,7 @@
 }
 
 /* end login */
+thead tr:first-child th { 
+    position: sticky;
+    top:0;
+}

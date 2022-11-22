@@ -1,11 +1,11 @@
-SmartCardApp.factory('HistoryExitService',['$http','$rootScope',function($http,$rootScope){
+SmartCardApp.factory('ProfileService',['$http','$rootScope',function($http,$rootScope){
     var hostname = $rootScope.hostname;
     var service = {};
-    service.GetHistoryExit = fnGetHistoryExit;
-    function fnGetHistoryExit(reqData, callback) {
+    service.GetProfile = fnGetProfile;
+    function fnGetProfile(reqData, callback) {
         var req = {
             method: 'POST',
-            url: hostname+'/admin/get_history_exit',
+            url: hostname+'/user/profile',
             data: reqData
         }
         $http(req).then(function(respData){callback(respData.data);}, function(respData){});
