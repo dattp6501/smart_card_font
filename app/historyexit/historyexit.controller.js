@@ -52,4 +52,11 @@ function($scope,$rootScope,$location,$cookies,HistoryExitService,$filter,NgTable
             }
         }
     });
+
+    $scope.ShowDetailHistoryExit = fnShowDetailHistoryExit;
+    function fnShowDetailHistoryExit(historyExit){
+        $scope.HESelected = historyExit;
+        console.log($scope.HESelected);
+        $("#modal-he-detail").modal("show");
+    }
 }]);

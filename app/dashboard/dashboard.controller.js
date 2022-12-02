@@ -25,7 +25,7 @@ function($scope,$rootScope,$location,$cookies,DashboardService){
                 null, 11164, 11218, 10077]
         }];
         var xdata1 = {
-            "title": "Ngày",
+            "title": "Thời gian",
             "list": ['01/2022','02/2022','03/2022','04/2022','05/2022','06/2022','07/2022','08/2022','09/2022','10/2022','11/2022']
         }
         var yData1 = {
@@ -70,7 +70,10 @@ function($scope,$rootScope,$location,$cookies,DashboardService){
                 }
             },
             xAxis: {
-                categories: xData.list
+                categories: xData.list,
+                title:{
+                    text: xData.title
+                }
             },
             legend: {
                 layout: 'vertical',
